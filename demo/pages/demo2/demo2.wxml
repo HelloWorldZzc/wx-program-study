@@ -1,0 +1,15 @@
+<!--pages/demo2/demo2.wxml-->
+<!-- 
+  css基础样式
+  img操作
+
+ -->
+<text>pages/demo2/demo2.wxml</text>
+<view>
+  test
+</view>
+<text user-select decode="true">
+  text &nbsp;
+</text>
+
+<image show-menu-by-longpress mode="widthFix" src="https://img2.baidu.com/it/u=3182718377,2697601391&fm=253&fmt=auto&app=120&f=JPEG?w=690&h=388"></image>

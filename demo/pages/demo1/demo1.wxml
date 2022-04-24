@@ -1,0 +1,57 @@
+<!--pages/demo1/demo1.wxml-->
+<!-- 
+  hello world
+  基础变量操作
+  v-for
+  v-model
+  v-if
+  点击按钮事件
+ -->
+<text>pages/demo1/demo1.wxml</text>
+<!-- 展示对象的信息 -->
+{{person.name}}
+<!-- 在标签中使用 -->
+<view class="{{person.id}}"></view>
+<!-- 选择框 -->
+<checkbox checked="{{isTure}}">选择</checkbox>
+<!-- v-for -->
+<view 
+  wx:for="{{list}}"
+  wx:key="id"
+>
+     索引：{{index}}
+     --
+     值:{{item.name}}
+   </view>
+  
+   <view>
+   <view>对象循环</view>
+   <view 
+  wx:for="{{person}}"
+  wx:for-item="value"  
+  wx:for-index="key"
+  wx:key="age"
+  >
+     属性:{{key}}
+     --
+     值:{{value}}
+   </view>
+ </view>
+ <!-- template 叫block 占位标签-->
+ <block> 这是一个占位标签 在查看源代码的时候会去除</block>
+
+
+<!-- v-if -->
+<view wx:if="{{false}}">hhhhh</view>
+<view wx:elif="{{flase}}">2222</view>
+<view wx:else>wwwww</view>
+
+<!-- v-model 双向绑定 -->
+<input type="text" bindinput="handleInput" />
+<view>  
+  {{input}}
+</view>
+
+<!-- 按钮事件 小程序的函数是不能携带参数-->
+<button bindtap="test" data-operation="{{1}}">+</button>
+<button bindtap="test" data-operation="{{-1}}">-</button>

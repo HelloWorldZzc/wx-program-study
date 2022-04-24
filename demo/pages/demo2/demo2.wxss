@@ -1,0 +1,46 @@
+/* pages/demo2/demo2.wxss */
+view{
+  background:#cfdbb3;
+  /* 把数据写死的写法 */
+  /* width: 100px;
+  height: 200px; */
+  width:calc(750rpx * 100 / 375);
+
+}
+image{
+  width: 200px;
+  height: 300px;
+}
+/* 
+需要把页面中某些元素的单位 由 px 改成 rpx 不管屏幕多大都看成750rpx 根据相对的比例进行调节
+750px的屏幕      750 px = 750 rpx  1 px = 1rpx    1rpx = 1px
+375px的屏幕      375 px= 750rpx   1px=2rpx        1rpx=0.5px
+计算公式：
+  page px = 750 rpx
+  1 px = 750 rpx / page 
+利用 一个属性 calc属性  css 和 wxss 都支持 一个属性
+  1 750 和 rpx 中间不要留空格
+  2 运算符的两边也不要留空格
+width:calc(750rpx * 100 / 375);
+
+自己文件下的所属wxss文件不需要引入 路径下的文件需要引入
+@import "xxx";
+less是一种为了方便写css而产生的语言，在其他编译器中能使用less插件生成css或者wxss代码
+
+
+<!-- 
+  image 图片标签
+  1 src 指定要加载的图片的路径
+    图片存在默认的宽度和高度 320 * 240      原图大小是 200 * 100
+  2 mode 决定 图片内容 如何 和 图片标签 宽高 做适配
+    1 scaleToFill 默认值 不保持纵横比缩放图片，使图片的宽高完全拉伸至填满 image 元素 
+    2 aspectFit 保持宽高比 确保图片的长边 显示出来   页面轮播图 常用
+    3 aspectFill 保持纵横比缩放图片，只保证图片的 短 边能完全显示出来。  少用
+    4 widthFix 以前web的图片的 宽度指定了之后 高度 会自己按比例来调整   常用  
+    5 bottom。。 类似以前的backgroud-position 
+  3 小程序当中的图片 直接就支持 懒加载  lazy-load
+    1 lazy-load 会自己判断 当 图片 出现在 视口  上下 三屏的高度 之内的时候  自己开始加载图片 
+  图片需要使用网络传输 微信小程序限制应用大小 因此应用不能过大
+ -->
+
+ */

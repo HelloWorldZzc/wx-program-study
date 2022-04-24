@@ -1,0 +1,47 @@
+<!--pages/demo3/demo3.wxml-->
+<!-- 
+  轮播图、超链接、富文本框
+ -->
+<!-- 
+  1 轮播图外层容器 swiper
+  2 每一个轮播项 swiper-item
+  3 swiper标签 存在默认样式
+    1 width 100%
+    2 height 150px    image 存在默认宽度和高度 320 * 240 
+    3 swiper 高度 无法实现由内容撑开 
+  4 先找出来 原图的宽度和高度 等比例 给swiper 定 宽度和高度
+    原图的宽度和高度  1125 * 352 px
+    swiper 宽度 / swiper  高度 =  原图的宽度  /  原图的高度
+    swiper  高度  =  swiper 宽度 *  原图的高度 / 原图的宽度
+    height: 100vw * 352 /  1125
+  5 autoplay 自动轮播
+  6 interval 修改轮播时间
+  7 circular 衔接轮播
+  8 indicator-dots 显示 指示器 分页器 索引器 
+  9 indicator-color 指示器的未选择的颜色 
+  10 indicator-active-color 选中的时候的指示器的颜色 
+ -->
+<text>pages/demo3/demo3.wxml</text>
+<swiper autoplay interval="3000" circular indicator-dots 	indicator-color="#0094ff" indicator-active-color="#ff0094">
+    <swiper-item> <image mode="widthFix" src="//gw.alicdn.com/imgextra/i1/44/O1CN013zKZP11CCByG5bAeF_!!44-0-lubanu.jpg" /> </swiper-item>
+    <swiper-item> <image mode="widthFix" src="//aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg" /> </swiper-item>
+    <swiper-item> <image mode="widthFix" src="//gw.alicdn.com/imgextra/i2/37/O1CN01syHZxs1C8zCFJj97b_!!37-0-lubanu.jpg" /> </swiper-item>
+</swiper>
+
+<!-- 超链接 
+url 要跳转的页面路径  绝对路径 相对路径
+target 要跳转到当前的小程序 还是其他的小程序的页面   self 默认值 自己 小程序的页面   miniProgram 其他的小程序的页面
+open-type 跳转的方式
+   1 navigate 默认值 	保留当前页面，跳转到应用内的某个页面，但是不能跳到 tabbar 页面
+   2 redirect	关闭当前页面，跳转到应用内的某个页面，但是不允许跳转到 tabbar 页面。
+   3 switchTab	跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
+   4 reLaunch	关闭所有页面，打开到应用内的某个页面
+
+-->
+<navigator open-type="reLaunch" url="../index/index">
+超链接~
+</navigator>
+
+<!-- 富文本标签 能把HTML代码进行解析 相当于vue中的v-html -->
+<rich-text nodes="{{html}}"></rich-text>
+<rich-text nodes="<div> hello world </div>"></rich-text>
