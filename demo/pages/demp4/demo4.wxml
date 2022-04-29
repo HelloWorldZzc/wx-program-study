@@ -1,0 +1,98 @@
+<!--pages/demp4/demo4.wxml-->
+<!-- 
+  button、icon、单选框、复选框
+ -->
+<!-- 
+  button 标签
+  1 外观的属性
+    1 size 控制按钮的大小
+      1 default 默认大小
+      2 mini 小尺寸
+    2 type 用来控制按钮的颜色
+      1 default 灰色
+      2 primary 绿色
+      3 warn 红色
+    3 plain  按钮是否镂空，背景色透明
+    4 loading 文字前显示正在等待图标
+    5 form-type 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件
+    6 disabled 是否禁用
+    7 hover-stop-propagation 阻止冒泡
+    tip 根据不同的权限有着不同的操作方法 更多的还是需要查阅相关文献去进行不同的操作
+ -->
+  <!-- 
+
+  button 开发能力
+  open-type：
+  1 contact 直接打开  客服对话功能  需要在微信小程序的后台配置   只能够通过真机调试来打开   ----》视频讲解：https://www.bilibili.com/video/BV1nE41117BQ?p=31
+  2 share 转发当前的小程序 到微信朋友中   不能把小程序 分享到 朋友圈 
+  3 getPhoneNumber 获取当前用户的手机号码信息 结合一个事件来使用  不是企业的小程序账号 没有权限来获取用户的手机号码 
+    1 绑定一个事件 bindgetphonenumber 
+    2 在事件的回调函数中  通过参数来获取信息 
+    3 获取到的信息  已经加密过了 
+      需要用户自己待见小程序的后台服务器，在后台服务器中进行解析 手机号码，返回到小程序中 就可以看到信息了
+  4 getUserInfo 获取当前用户的个人信息
+    1 使用方法 类似 获取用户的手机号码
+    2 可以直接获取 不存在加密的字段 
+  5 launchApp 在小程序当中 直接打开 app---》比较难实现
+    1 需要现在 app中 通过app的某个链接 打开 小程序
+    2 在小程序 中 再通过 这个功能 重新打开 app
+    3 找到 京东的app 和 京东的小程序  
+  6 openSetting 打开小程序内置的 授权页面
+    1 授权页面中 只会出现 用户曾经点击过的 权限 
+  7 feedback 打开 小程序内置的 意见反馈页面 
+    1 只能够通过真机调试来打开 
+
+  -->
+<button open-type="chooseAvatar" 	bindchooseavatar="test"> 获取头像</button>
+<image src="{{temp}}"></image>
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo">getUserInfo</button>
+<button open-type="share">share</button>
+
+<!-- 
+  小程序中的字体图标
+  1 type 图标的类型
+    success|success_no_circle|info|warn|waiting|cancel|download|search|clear
+  2 size 大小 
+  3 color 图标的颜色
+ -->
+ <icon  type="cancel" size="60" color="#0094ff"> </icon>
+
+<!-- 
+  radio 单选框
+  1 radio标签 必须要和 父元素 radio-group来使用
+  2 value 选中的单选框的值 
+  3 需要给 radio-group 绑定 change事件 
+  4 需要在页面中显示 选中的值
+ -->
+ <radio-group bindchange="handleChange">
+   <radio color="red" value="male">男</radio>
+   <radio color="red" value="female" >女</radio>
+ </radio-group>
+
+ <view>您选中的是:{{gender}}</view>
+  
+<!-- 与单选框类似的 也有复选框 -->
+<view>
+<checkbox-group bindchange="box">
+<checkbox value="{{item.value}}" wx:for="{{list}}" wx:key="{{item.id}}" >
+{{item.name}}
+</checkbox>
+</checkbox-group>
+<view>
+    选中的水果:{{checked}} 
+      <!-- 特殊 及时checked是一个数组 但是在小程序的语法中还是能够这样写-->
+  </view>
+</view>
+
+
+<!-- <view>
+  <checkbox-group bindchange="box">
+    <checkbox value="{{item.value}}" wx:for="{{list}}" wx:key="id">
+      {{item.name}}
+    </checkbox>
+
+  </checkbox-group>
+  <view>
+    选中的水果:{{checked}}     
+  </view>
+</view> -->

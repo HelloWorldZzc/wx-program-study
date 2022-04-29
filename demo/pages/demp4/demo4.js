@@ -1,0 +1,46 @@
+// pages/demp4/demo4.js
+Page({
+
+  data: {
+    temp:"",
+    gender:"",
+    list:[
+      {
+        id:0,
+        name:"🍎",
+        value:"apple"
+      },
+      {
+        id:1,
+        name:"🍇",
+        value:"grape"
+      },
+      {
+        id:2,
+        name:"🍌",
+        value:"bananer"
+      }
+    ],
+    checked:[]
+  },
+  test(e){
+    console.log(e);
+    this.setData({
+      temp:e.detail.avatarUrl
+    })
+    console.log(e.detail.avatarUrl);
+  },
+  getUserInfo(e){
+    console.log(e)
+  },
+  handleChange(e){
+    this.setData({
+      gender:e.detail.value
+    })
+  },
+  box(e){
+      this.setData({
+        checked:e.detail.value
+      })
+  }
+})
