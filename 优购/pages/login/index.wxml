@@ -1,0 +1,5 @@
+<!--pages/login/index.wxml 登录界面-->
+
+
+<button type="primary" plain bindtap="getUserProfile"> 登录 </button>
+

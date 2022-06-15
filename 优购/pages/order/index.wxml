@@ -1,0 +1,7 @@
+<!--pages/order/index.wxml 订单界面-->
+<view>
+  个人开发者没有支付权限....
+</view>
+<view>
+  无订单数据
+</view>

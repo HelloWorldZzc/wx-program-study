@@ -1,0 +1,7 @@
+/* pages/order/index.wxss */
+view{
+  font-size: 30px;
+  color: red;
+  padding-top: 10px;
+  text-align: center;
+}
